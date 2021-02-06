@@ -9,31 +9,27 @@ PATCHES="${PWD}/patches"
 
 export RELEASE_STATUS=$(cat "${CONF}/release")
 export RELEASE_VERSION=$(cat "${CONF}/$FOLDER/version")
-export KERNEL_NAME="Fusion"
+export KERNEL_NAME="megalith.StrmbreakrIV.XIX"
 export CODENAME=$(cat "${CONF}/$FOLDER/codename")-4.19
 export KERNEL_TYPE=$(cat "${CONF}/$FOLDER/type")
 export PHONE="Redmi Note 7"
 export DEVICES="lavender"
 export CONFIG_FILE="lavender_defconfig"
 export COMPILER_IS_CLANG=true
-export USECLANG="nusantara-10"
+export USECLANG="proton"
 export USEGCC=93
-#export CHAT_ID="-1001251953845" #
-export CHAT_ID="-1001273145812" #
-#export CHAT_ID=$(openssl enc -base64 -d <<< LTEwMDEyMzAyMDQ5MjMK)
-export DEVELOPER="alanndz-nicklas373"
-export HOST="fusion_lavender-dev"
-export AK_BRANCH="fusion"
+export DEVELOPER="xyzuan@xyzscape.co"
+export HOST="xyzscape.co"
+export AK_BRANCH="4.19"
 export JOBS=8
 BRANCH=$(cat "${CONF}/$FOLDER/branch")
 unset token
-export token=${token_tele}
 GIT_TOKEN=$(openssl enc -base64 -d <<< ${git_token})
-git clone --depth=1 -b $BRANCH https://${git_username}:$GIT_TOKEN@github.com/HANA-CI-Build-Project/kernel_xiaomi_lavender-4.19.git saus
+git clone --depth=1 -b alpha https://github.com/xyz-prjkt/kernel_xiaomi_lavender_4.19 megalith
 
-cd saus
+cd megalith
 
-wget --output-document=.kernel.sh https://raw.githubusercontent.com/alanndz/scripts/master/ci/perf3.sh
+wget --output-document=.kernel.sh https://raw.githubusercontent.com/xyz-prjkt/xyz_scripts/xyzuan/kernel.sh
 
 chmod +x .kernel.sh
 bash ./.kernel.sh
