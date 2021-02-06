@@ -2,10 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: alanndz/oven:latest
+      - image: xyzscape/xyzuan:latest
     steps:
       - checkout
       - run: bash ./build.sh
     filters:
       branches:
-        only: master
+        only: xyz
